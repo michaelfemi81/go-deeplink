@@ -27,7 +27,7 @@ type DeepLink struct {
 	Url string
 }
 
-func (d *DeepLink) init(f string, t... string) (error) {
+func (d *DeepLink) Init(f string, t... string) (error) {
 	d.Fallback = f
 	if (strings.Trim(f, " ") == "") {
 		return errors.New("Invalid Fallback");
