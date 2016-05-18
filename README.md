@@ -18,7 +18,6 @@ func main() {
 
 
 func doDeep(w http.ResponseWriter ,r *http.Request) {
-  dl := DeepLink{}
   dl := deeplink.DeepLink{}
   
 dl.Init("http://yourfallback.com","com.myapp.myappname");
