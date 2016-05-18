@@ -5,7 +5,7 @@ Provides deeplink for android and ios app
 
     go get github.com/michaelfemi81/go-deeplink
 ### API DOCUMENTATION
-` 
+``` 
 package main
 import (
 "github.com/michaelfemi81/go-deeplink"
@@ -26,4 +26,4 @@ dl.init("http://yourfallback.com","com.myapp.myappname");
     fmt.Println(err)
   }
 }
-`
+```
