@@ -72,15 +72,18 @@ func(d DeepLink)DoDeepLink(w http.ResponseWriter, r *http.Request)(err error){
 		if err != nil {
 			fmt.Println(err)
 			//  os.Exit(1)
-		}
-		err=t.Execute(fil,d);
-		if err != nil {
-			fmt.Println(err)
-			//  os.Exit(1)
 		}else{
-			inliner.RenderToHttp("./public/aa.html",w,r);
+			err=t.Execute(fil,d);
+			if err != nil {
+				fmt.Println(err)
+				//  os.Exit(1)
+			}else{
+				inliner.RenderToHttp("./public/aa.html",w,r);
 
+			}
 		}
+
+
 		defer remove("./public/aa.html")
 		defer fil.Close()
 
