@@ -1,0 +1,22 @@
+
+<html>
+<head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+	<title>{{.Title}}</title>
+</head>
+<body>
+
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript">
+    var options = {
+      fallback: '{{.Fallback}}',
+      url: '{{.Url}}',
+      ios_store_link: '{{.Ios_store_link}}',
+      android_package_name: '{{.Android_package_name}}'
+    }
+  	deep_link(options)
+  </script>
+</body>
+</html>
