@@ -8,9 +8,9 @@ import (
 	"strings"
 	"net/http"
 	"html/template"
-
-	//"reflect"
 	"errors"
+	"path"
+	"runtime"
 )
 type errorString struct {
 	s string
@@ -56,6 +56,11 @@ func (d *DeepLink) Init(f string, t... string) (error) {
 return nil
 }
 func(d DeepLink)DoDeepLink(w http.ResponseWriter, r *http.Request)(err error){
+	_, filename, _, ok := runtime.Caller(0)
+	if !ok {
+		panic("No caller information")
+	}
+	//fmt.Printf("Filename : %q, Dir : %q\n", filename, path.Dir(filename))
 	url:=r.URL.Query()["url"];
 	//fmt.Println(d.Title)
 	if(url==nil){
@@ -67,8 +72,10 @@ func(d DeepLink)DoDeepLink(w http.ResponseWriter, r *http.Request)(err error){
 		d.Url=url[0]
 
 		t := template.New("index.html")
-		t,err:=t.ParseFiles("./public/index.html");
-		fil, err := os.OpenFile("./public/aa.html", os.O_WRONLY|os.O_CREATE, 0666)
+
+
+		t,err:=t.ParseFiles(path.Dir(filename)+"/public/index.html");
+		fil, err := os.OpenFile(path.Dir(filename)+"/public/aa.html", os.O_WRONLY|os.O_CREATE, 0666)
 		if err != nil {
 			fmt.Println(err)
 			//  os.Exit(1)
@@ -78,13 +85,13 @@ func(d DeepLink)DoDeepLink(w http.ResponseWriter, r *http.Request)(err error){
 				fmt.Println(err)
 				//  os.Exit(1)
 			}else{
-				inliner.RenderToHttp("./public/aa.html",w,r);
+				inliner.RenderToHttp(path.Dir(filename)+"/public/aa.html",w,r);
 
 			}
 		}
 
 
-		defer remove("./public/aa.html")
+		defer remove(path.Dir(filename)+"/public/aa.html")
 		defer fil.Close()
 
 
