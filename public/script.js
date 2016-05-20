@@ -11,6 +11,9 @@ function deep_link (options) {
   var split = url.split(/:\/\/(.+)/)
   var scheme = split[0]
   var path = split[1]
+  if(path.charAt(path.length-1)!="/"){
+    path+="/";
+  }
 
   var urls = {
     deep_link: url,
