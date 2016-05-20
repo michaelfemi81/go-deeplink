@@ -4,8 +4,8 @@ function deep_link (options) {
   var url = options.url || ''
   var ios_store_link = options.ios_store_link
   var android_package_name = options.android_package_name
-  var play_store_link="market://details?id="+android_package_name
-  var play_store_link2 = 'https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3D' + android_package_name
+ 
+  var play_store_link = 'https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3D' + android_package_name
   var ua = window.navigator.userAgent
 
   // split the first :// from the url string
@@ -20,7 +20,7 @@ function deep_link (options) {
     deep_link: url,
     ios_store_link: ios_store_link,
     
-    android_intent: 'intent://' + path + '#Intent;scheme=' + scheme + ';package=' + android_package_name.split("&uniquecode=")[0] + ';S.browser_fallback_url='+play_store_link2+';end',
+    android_intent: 'intent://' + path + '#Intent;scheme=' + scheme + ';package=' + android_package_name.split("&uniquecode=")[0] + ';S.browser_fallback_url='+play_store_link+';end',
     play_store_link: play_store_link,
     fallback: fallback
   }
@@ -84,7 +84,7 @@ function deep_link (options) {
     } else if (ua.match(/Firefox/)) {
       launch_webkit_approach(urls.deep_link, urls.play_store_link || urls.fallback)
     } else {
-      launch_iframe_approach(urls.play_store_link || urls.fallback)
+      launch_iframe_approach(url,urls.play_store_link || urls.fallback)
     }
   }
 }
