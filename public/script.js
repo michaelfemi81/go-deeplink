@@ -84,7 +84,7 @@ function deep_link (options) {
     } else if (ua.match(/Firefox/)) {
       launch_webkit_approach(urls.deep_link, urls.play_store_link || urls.fallback)
     } else {
-      launch_iframe_approach(url, urls.play_store_link || urls.fallback)
+      launch_iframe_approach(urls.play_store_link || urls.fallback)
     }
   }
 }
