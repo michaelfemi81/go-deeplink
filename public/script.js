@@ -4,7 +4,7 @@ function deep_link (options) {
   var url = options.url || ''
   var ios_store_link = options.ios_store_link
   var android_package_name = options.android_package_name
-  var play_store_link = 'https://market.android.com/details?id=' + android_package_name
+  var play_store_link = 'https://play.google.com/store/apps/details?id=' + android_package_name
   var ua = window.navigator.userAgent
 
   // split the first :// from the url string
