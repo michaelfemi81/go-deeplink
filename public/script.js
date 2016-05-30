@@ -84,10 +84,10 @@ function deep_link (options) {
       document.location = urls.android_intent
     } else if (ua.match(/Firefox/)) {
       //launch_webkit_approach(urls.deep_link, urls.play_store_link || urls.fallback)
-      doc.location=urls.play_store_link
+      doc.location=urls.play_store_link2
     } else {
      // launch_iframe_approach(url,urls.play_store_link || urls.fallback)
-     doc.location=urls.play_store_link
+     doc.location=urls.play_store_link2
     }
   }
 }
