@@ -20,8 +20,8 @@ function deep_link (options) {
   var urls = {
     deep_link: url,
     ios_store_link: ios_store_link,
-    android_intent:'intent://'+'details?id= '+ android_package_name+'#Intent;scheme=market'+ ';package=com.android.vending;S.browser_fallback_url='+play_store_link2+';end',
-    //android_intent: 'intent://' + path + '#Intent;scheme=' + scheme + ';package=' + android_package_name.split("&referrer%3D")[0] + ';S.browser_fallback_url='+play_store_link2+';end',
+   // android_intent:'intent://'+'details?id= '+ android_package_name+'#Intent;scheme=market'+ ';package=com.android.vending;S.browser_fallback_url='+play_store_link2+';end',
+    android_intent: 'intent://' + path + '#Intent;scheme=' + scheme + ';package=' + android_package_name.split("&referrer%3D")[0] + ';S.browser_fallback_url='+play_store_link2+';end',
     play_store_link: play_store_link,
     fallback: fallback
   }
