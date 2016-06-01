@@ -5,7 +5,7 @@ function deep_link (options) {
   var ios_store_link = options.ios_store_link
   var android_package_name = options.android_package_name
  
-  var play_store_link = 'market://details?id=' + android_package_name
+  var play_store_link = 'market://details?id=' + android_package_name.split("&referrer%3D")[0]
   var play_store_link2 = 'https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3D' + android_package_name
   var ua = window.navigator.userAgent
 
